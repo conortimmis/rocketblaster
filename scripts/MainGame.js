@@ -97,8 +97,8 @@ boundarys
 
   //Generate random number between 0 and 20
   var random = this.rnd.integerInRange(0, 20);
- //if random number equals 0 then create a ufo in a random x
-position and random y velocity
+  //if random number equals 0 then create a ufo in a random x position and random y velocity
+
   if (random === 0) {
   //Generating random position in the X Axis
   var randomX = this.rnd.integerInRange(0, this.world.width - 15
@@ -115,8 +115,8 @@ position and random y velocity
  createLife: function () {
  //Generate random number between 0 and 500
  var random = this.rnd.integerInRange(0, 500);
- //if random number equals 0 then create a life in a random x
- position
+ //if random number equals 0 then create a life in a random x position
+ 
  if (random === 0) {
  //Generating random position in the X Axis
  var randomX = this.rnd.integerInRange(0, this.world.width - 15
@@ -129,8 +129,8 @@ position and random y velocity
  }
  },
 
- //Generate bullet and position in the x axis, set the velocity and
- play the audio
+ //Generate bullet and position in the x axis, set the velocity and play the audio
+ 
  fireBullet: function () {
  if (this.time.now > nextFire && bullets.countDead() > 0) {
  nextFire = this.time.now + fireRate;
