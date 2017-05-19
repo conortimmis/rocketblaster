@@ -46,38 +46,37 @@ boundarys
   lives.setAll('anchor.x', 0.5);
   lives.setAll('anchor.y', 0.5);
  
-Macintosh HD:Users:shaunreeves:Library:Mobile Documents:com~apple~CloudDocs:GitHub:phasergamerocket:Tutorial3-ObjectMovement:scripts:MainGame.js: 1/3
-  //Create the bullets group, set the physics, multiples and
-boundarys
+
+  //Create the bullets group, set the physics, multiples and boundaries
+
   bullets = this.add.group();
- bullets.enableBody = true;
+  bullets.enableBody = true;
   bullets.physicsBodyType = Phaser.Physics.ARCADE;
- bullets.createMultiple(30, 'bullet', 0, false);
+  bullets.createMultiple(30, 'bullet', 0, false);
   bullets.setAll('anchor.x', 0.5);
   bullets.setAll('anchor.y', 0.5);
   bullets.setAll('outOfBoundsKill', true);
   bullets.setAll('checkWorldBounds', true);
  
   //Setting the keyboard to accept LEFT, RIGHT and SPACE input
-  this.input.keyboard.addKeyCapture([Phaser.Keyboard.LEFT, Phaser.Ke
-yboard.RIGHT, Phaser.Keyboard.SPACEBAR]);
+  this.input.keyboard.addKeyCapture([Phaser.Keyboard.LEFT, Phaser.Keyboard.RIGHT, Phaser.Keyboard.SPACEBAR]);
   cursors = this.input.keyboard.createCursorKeys();
   },
  
   update: function () {
   //execute 'createUfo','createLife','moveShip','collisionDetection'
-function
+  function
   this.createUfo();
   this.createLife();
   this.moveShip();
   },
  
- //moves ship and fires bullet from keyboard controls
+  //moves ship and fires bullet from keyboard controls
   moveShip: function () {
   //if left arrow key pressed move players ship left
   if (cursors.left.isDown) {
- // Move to the left
- ship.body.velocity.x = -200;
+  // Move to the left
+  ship.body.velocity.x = -200;
   }
   //if right arrow key pressed move players ship right
   else if (cursors.right.isDown) {
@@ -91,7 +90,7 @@ function
   if (this.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
   this.fireBullet();
   }
- },
+  },
  
  //function executed during playing the game to create a UFO
  createUfo: function () {
@@ -110,31 +109,31 @@ position and random y velocity
  //Generating a random velocity
  ufo.body.velocity.y = this.rnd.integerInRange(100, 600);
  }
-},
+ },
 
  //function executed during playing the game to create a Life
  createLife: function () {
-//Generate random number between 0 and 500
+ //Generate random number between 0 and 500
  var random = this.rnd.integerInRange(0, 500);
  //if random number equals 0 then create a life in a random x
-position
+ position
  if (random === 0) {
  //Generating random position in the X Axis
  var randomX = this.rnd.integerInRange(0, this.world.width - 15
-0);
+ 0);
  //Creating a ufo from the the ufos group and setting physics
  var life = lives.create(randomX, -50, 'life');
-this.physics.enable(life, Phaser.Physics.ARCADE);
+ this.physics.enable(life, Phaser.Physics.ARCADE);
  //Generating a random velocity
  life.body.velocity.y = 150;
-}
+ }
  },
 
  //Generate bullet and position in the x axis, set the velocity and
-play the audio
-fireBullet: function () {
-    if (this.time.now > nextFire && bullets.countDead() > 0) {
-nextFire = this.time.now + fireRate;
+ play the audio
+ fireBullet: function () {
+ if (this.time.now > nextFire && bullets.countDead() > 0) {
+ nextFire = this.time.now + fireRate;
  var bullet = bullets.getFirstExists(false);
  bullet.reset(ship.x, ship.y);
  bullet.body.velocity.y = -400;
