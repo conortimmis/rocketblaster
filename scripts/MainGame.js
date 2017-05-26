@@ -20,7 +20,7 @@
   //Adding the starfield, logo onto the screen
   this.starfield = this.add.tileSprite(0, 0, 800, 600, 'starfield');
   //Adding the ship onto the screen, set the physics and the
-boundarys
+  //boundaries
  ship = this.add.sprite((this.world.width / 2), this.world.height -
 50, 'ship');
   ship.anchor.setTo(0.5,0);
