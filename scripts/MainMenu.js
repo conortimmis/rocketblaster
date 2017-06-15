@@ -10,9 +10,7 @@ create: function () {
 // We've already preloaded our assets, so let's kick right into the Main Menu itself.
 // Here all we're doing is playing some music and adding a picture and button
 // Naturally I expect you to do something significantly better.
-
-//Outputting sky, ship, score, lives, total and Start Time to the
-screen
+//Outputting sky, ship, score, lives, total and Start Time to the screen
 // The scrolling starfield background
 starfield = this.add.tileSprite(0, 0, 800, 600, 'starfield');
 logo = this.add.sprite((this.world.width / 2), (this.world.height /2) - 150, 'logo');
