@@ -8,8 +8,7 @@ this.ready = false;
 
  preload: function () {
 //Displays a loadng screen message while the assets are loaded into memory
-this.preloaderText = this.add.text(this.world.centerX, this.world.c
-enterY, 'Loading...', {
+this.preloaderText = this.add.text(this.world.centerX, this.world.centerY, 'Loading...', {
 fontSize: '96px',
 fill: '#fff',
 align: 'center'
@@ -42,7 +41,6 @@ update: function () {
 // You can jump right into the menu if you want and still play the music, but you'll have a few
 // seconds of delay while the mp3 decodes - so if you need your music to be in-sync with your menu
 // it's best to wait for it to decode here first, then carry on.
-
 // If you don't have any music in your game then put the game.state.start line into the create function and delete
 // the update function completely.
 
