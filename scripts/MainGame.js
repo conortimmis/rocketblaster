@@ -140,15 +140,13 @@ timer.start();
 update: function () {
 //Scroll the background
 this.starfield.tilePosition.y += 2;
-//if lifeTotal is less than 1 or seconds = 60 or gameOver variable
-= true then execute 'truegameOver' function
+//if lifeTotal is less than 1 or seconds = 60 or gameOver variable = true then execute 'truegameOver' function
 if (lifeTotal < 1 || seconds == 60 || gameOver===true) {
 this.gameOver();
 
 }
 
-//else execute
-'createUfo','createLife','moveShip','collisionDetection' function
+//else execute 'createUfo','createLife','moveShip','collisionDetection' function
 else {
 this.createUfo();
 this.createLife();
@@ -242,9 +240,7 @@ bulletAudio.play();
 //function executed during playing the game to check for collisions
 
 collisionDetection: function () {
-
 this.physics.arcade.overlap(ship, ufos, this.collideUfo, null, this);
-
 this.physics.arcade.overlap(ship, lives, this.collectLife, null, t
 his);
 this.physics.arcade.overlap(bullets, ufos, this.destroyUfo, null,
@@ -252,27 +248,20 @@ this);
 
 },
 
-//function executed if there is collision between player and ufo. UFO
-
-is destroyed, animation & sound, reduce lifeTotal
+//function executed if there is collision between player and ufo. UFO is destroyed, animation & sound, reduce lifeTotal
 collideUfo: function (ship,ufo) {
 explosionAudio.play();
 ufo.kill();
-
 var animation = this.add.sprite(ufo.body.x, ufo.body.y, 'kaboom');
 animation.animations.add('explode');
 animation.animations.play('explode', 30, false, true);
 lifeTotal--;
 lifeTotalText.text = 'Lives: ' + lifeTotal;
-
-
- gameOver=true;
+gameOver=true;
 
  },
 
-//function executed if there is collision between ufo and bullet. UFO
-
-is destroyed, animation & sound, increase score
+//function executed if there is collision between ufo and bullet. UFO is destroyed, animation & sound, increase score
 destroyUfo: function (bullet, ufo) {
 explosionAudio.play();
 ufo.kill();
@@ -285,15 +274,12 @@ score += 100;
 scoreText.text = 'Score: ' + score;
  },
 
-//function executed if there is collision between player and life.
-Life is destroyed, animation & sound, increase lifeTotal
+//function executed if there is collision between player and life. Life is destroyed, animation & sound, increase lifeTotal
 collectLife: function (ship, life) {
 life.kill();
 lifeTotal++;
 lifeTotalText.text = 'Lives: ' + lifeTotal;
-
 var animation = this.add.sprite(life.body.x, life.body.y, 'lifeAnimation');
-
 animation.animations.add('lifeAnimation');
 animation.animations.play('lifeAnimation', 30, false, true);
 
@@ -306,23 +292,19 @@ timerText.text = 'Time: ' + seconds;
 
 },
 
-//function is executed when the game ends. Stops Ship, Kills all
-
-objects, stops timer, Display Restart Button
+//function is executed when the game ends. Stops Ship, Kills all objects, stops timer, Display Restart Button
 gameOver: function () {
 ship.body.velocity.x = 0;
 ship.body.x = (this.world.width/2)-(ship.body.width/2);
 ufos.callAll('kill');
 lives.callAll('kill');
 bullets.callAll('kill');
-
 music.stop();
 gameOverText.visible = true;
 restartButton.visible = true;
 timer.stop();
 },
 //Restart function, executed when restart button is pressed
-
 restartGame: function () {
 this.game.state.start('Game');
  },
